@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soukhya Wale — AI & Data Science Student</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0d1013;
+    --bg-raised: #14181d;
+    --border: #232a31;
+    --text: #e9e7e1;
+    --text-dim: #8b95a1;
+    --accent: #5eead4;
+    --accent-dim: #2c5f57;
+    --mono: 'JetBrains Mono', monospace;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+  ::selection{background:var(--accent); color:#0d1013;}
+
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:rgba(13,16,19,0.85); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  nav .wrap{display:flex; justify-content:space-between; align-items:center; height:64px;}
+  .logo{font-family:var(--mono); font-size:14px; color:var(--accent);}
+  .navlinks{display:flex; gap:28px; font-family:var(--mono); font-size:13px; color:var(--text-dim);}
+  .navlinks a:hover{color:var(--text);}
+
+  /* HERO */
+  .hero{padding:110px 0 90px; border-bottom:1px solid var(--border);}
+  .eyebrow{
+    font-family:var(--mono); font-size:13px; color:var(--accent);
+    display:flex; align-items:center; gap:10px; margin-bottom:24px;
+  }
+  .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent); animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:.35;}}
+
+  h1{
+    font-family:var(--display); font-weight:700;
+    font-size:clamp(38px, 6vw, 64px); line-height:1.05; letter-spacing:-0.02em;
+    margin-bottom:20px;
+  }
+  h1 span{color:var(--accent);}
+
+  .terminal{
+    font-family:var(--mono); font-size:16px; color:var(--text-dim);
+    margin-top:8px; min-height:24px;
+  }
+  .terminal .caret{display:inline-block; width:8px; background:var(--accent); animation:blink 1s step-end infinite;}
+  @keyframes blink{50%{opacity:0;}}
+
+  .hero-actions{display:flex; gap:14px; margin-top:40px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono); font-size:13px; padding:12px 20px; border-radius:6px;
+    border:1px solid var(--border); transition:all .2s ease;
+  }
+  .btn.primary{background:var(--accent); color:#0d1013; border-color:var(--accent); font-weight:500;}
+  .btn.primary:hover{background:#7ff2df;}
+  .btn.ghost{color:var(--text); }
+  .btn.ghost:hover{border-color:var(--accent); color:var(--accent);}
+
+  /* SECTIONS */
+  section{padding:80px 0; border-bottom:1px solid var(--border);}
+  section:last-of-type{border-bottom:none;}
+  .section-label{
+    font-family:var(--mono); font-size:12px; color:var(--accent);
+    letter-spacing:0.08em; text-transform:uppercase; margin-bottom:14px;
+  }
+  h2{font-family:var(--display); font-size:clamp(26px, 4vw, 34px); margin-bottom:24px;}
+
+  .about-grid{display:grid; grid-template-columns:1fr; gap:32px;}
+  .about-text{color:var(--text-dim); font-size:16px; max-width:640px;}
+  .about-text strong{color:var(--text); font-weight:500;}
+
+  .fact-row{
+    display:flex; justify-content:space-between; padding:14px 0;
+    border-bottom:1px solid var(--border); font-family:var(--mono); font-size:14px;
+  }
+  .fact-row:last-child{border-bottom:none;}
+  .fact-row .k{color:var(--text-dim);}
+  .fact-row .v{color:var(--text); text-align:right;}
+
+  /* SKILLS */
+  .skill-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:12px;}
+  .skill-card{
+    background:var(--bg-raised); border:1px solid var(--border); border-radius:8px;
+    padding:18px 16px; transition:transform .2s ease, border-color .2s ease;
+  }
+  .skill-card:hover{transform:translateY(-3px); border-color:var(--accent);}
+  .skill-name{font-family:var(--display); font-size:16px; font-weight:600; margin-bottom:4px;}
+  .skill-tag{font-family:var(--mono); font-size:11px; color:var(--text-dim); text-transform:uppercase; letter-spacing:.05em;}
+
+  /* CONTACT */
+  .contact-card{
+    background:var(--bg-raised); border:1px solid var(--border); border-radius:10px;
+    padding:40px; display:flex; flex-direction:column; gap:20px;
+  }
+  .contact-row{display:flex; align-items:center; gap:16px;}
+  .contact-icon{
+    width:40px; height:40px; border-radius:8px; background:var(--accent-dim);
+    display:flex; align-items:center; justify-content:center; color:var(--accent); font-family:var(--mono); font-size:15px; flex-shrink:0;
+  }
+  .contact-detail .label{font-family:var(--mono); font-size:11px; color:var(--text-dim); text-transform:uppercase; letter-spacing:.05em;}
+  .contact-detail .value{font-size:16px; margin-top:2px;}
+  .contact-detail .value a:hover{color:var(--accent);}
+
+  footer{padding:32px 0; text-align:center; font-family:var(--mono); font-size:12px; color:var(--text-dim);}
+
+  @media(min-width:640px){
+    .about-grid{grid-template-columns: 1.3fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">soukhya.wale()</div>
+    <div class="navlinks">
+      <a href="#about">about</a>
+      <a href="#skills">skills</a>
+      <a href="#contact">contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span> available for internships & collaboration</div>
+    <h1>Soukhya Wale<br><span>builds with code & data.</span></h1>
+    <div class="terminal" id="terminal"></div>
+    <div class="hero-actions">
+      <a class="btn primary" href="#contact">Get in touch</a>
+      <a class="btn ghost" href="https://github.com/Soukhyaa" target="_blank" rel="noopener">View GitHub ↗</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-label">01 · About</div>
+    <h2>Third-year, building both sides of the stack.</h2>
+    <div class="about-grid">
+      <p class="about-text">
+        I'm a <strong>B.Tech 3rd year student in Artificial Intelligence & Data Science</strong>,
+        splitting my time between coursework in AI/ML fundamentals and building things for the web.
+        I like projects where the two overlap — training a model is only half the job if
+        nobody can actually use it, so I care about the front end just as much as the backend logic.
+      </p>
+      <div>
+        <div class="fact-row"><span class="k">Program</span><span class="v">B.Tech, AI & Data Science</span></div>
+        <div class="fact-row"><span class="k">Year</span><span class="v">3rd Year</span></div>
+        <div class="fact-row"><span class="k">Focus</span><span class="v">AI/ML + Web Dev</span></div>
+        <div class="fact-row"><span class="k">Status</span><span class="v">Open to opportunities</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-label">02 · Skills</div>
+    <h2>Tools I reach for.</h2>
+    <div class="skill-grid">
+      <div class="skill-card"><div class="skill-name">HTML</div><div class="skill-tag">Markup</div></div>
+      <div class="skill-card"><div class="skill-name">CSS</div><div class="skill-tag">Styling</div></div>
+      <div class="skill-card"><div class="skill-name">JavaScript</div><div class="skill-tag">Scripting</div></div>
+      <div class="skill-card"><div class="skill-name">React</div><div class="skill-tag">Frontend</div></div>
+      <div class="skill-card"><div class="skill-name">Python</div><div class="skill-tag">AI / Data</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-label">03 · Contact</div>
+    <h2>Let's talk.</h2>
+    <div class="contact-card">
+      <div class="contact-row">
+        <div class="contact-icon">@</div>
+        <div class="contact-detail">
+          <div class="label">Email</div>
+          <div class="value"><a href="mailto:wsoukhya@gmail.com">wsoukhya@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">&lt;/&gt;</div>
+        <div class="contact-detail">
+          <div class="label">GitHub</div>
+          <div class="value"><a href="https://github.com/Soukhyaa" target="_blank" rel="noopener">github.com/Soukhyaa</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Soukhya Wale · built with HTML, CSS & JS
+</footer>
+
+<script>
+  const roles = [
+    "AI & Data Science student",
+    "Frontend developer (React)",
+    "Python enthusiast",
+    "Always learning something new"
+  ];
+  const el = document.getElementById('terminal');
+  let roleIndex = 0, charIndex = 0, deleting = false;
+
+  function tick(){
+    const current = roles[roleIndex];
+    if(!deleting){
+      charIndex++;
+      if(charIndex > current.length){
+        deleting = true;
+        setTimeout(tick, 1400);
+        el.innerHTML = "> " + current + '<span class="caret">&nbsp;</span>';
+        return;
+      }
+    } else {
+      charIndex--;
+      if(charIndex < 0){
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        charIndex = 0;
+      }
+    }
+    el.innerHTML = "> " + current.slice(0, charIndex) + '<span class="caret">&nbsp;</span>';
+    setTimeout(tick, deleting ? 35 : 65);
+  }
+  tick();
+</script>
+
+</body>
+</html>
