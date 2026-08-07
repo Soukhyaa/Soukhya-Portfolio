@@ -6,29 +6,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Soukhya Wale — High Editorial Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Caveat:wght@400;600;700&display=swap"
     rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'Perfect Romantic';
+      src: url('fonts/PerfectRomantic-Regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
-      /* Luxury Palette */
-      --bg: #FCF8F6;
-      --card-bg: #FFFFFF;
-      --blush-soft: #F7E4EA;
-      --blush-border: #EBC8D5;
-      --accent: #A85E73;
-      --accent-dark: #844354;
-      --text: #1D1D1D;
-      --text-muted: #6E646A;
+      /* Editorial Fashion Palette — User Requested Refinement Palette */
+      --bg-base: #F9E7E1;
+      --bg-soft: #F6E7E2;
+      --bg-blush: #ECC2BC;
+
+      --warm-cream: #F9E7E1;
+      --blush-pink: #DFC4BC;
+      --soft-peach: #F6E7E2;
+      --dusty-rose: #AB6968;
+      --dusty-rose-dark: #9B5C63;
+
+      --pink-terracotta: #CA9072;
+      --charcoal: #191E27;
+      --text-muted: #5B5559;
 
       /* Typography */
-      --font-serif: 'Playfair Display', Georgia, serif;
-      --font-sans: 'Inter', -apple-system, sans-serif;
-      --font-script: 'Caveat', cursive;
-
-      /* Elevation & Paper Depth */
-      --shadow-paper: 0 16px 40px rgba(168, 94, 115, 0.07), 0 2px 8px rgba(29, 29, 29, 0.03);
-      --shadow-hover: 0 24px 54px rgba(168, 94, 115, 0.15), 0 4px 14px rgba(29, 29, 29, 0.05);
+      --font-name: 'Perfect Romantic', 'Bodoni Moda', 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
     * {
@@ -42,392 +51,337 @@
     }
 
     body {
-      background-color: var(--bg);
-      color: var(--text);
+      background-color: var(--bg-base);
+      color: var(--charcoal);
       font-family: var(--font-sans);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      /* Soft blush watercolor background gradient matching reference image */
       background-image:
-        radial-gradient(circle at 8% 12%, rgba(247, 228, 234, 0.55) 0%, transparent 40%),
-        radial-gradient(circle at 92% 88%, rgba(235, 200, 213, 0.45) 0%, transparent 45%);
+        radial-gradient(ellipse 70% 60% at 2% 8%, rgba(236, 194, 188, 0.88) 0%, rgba(223, 196, 188, 0.45) 45%, transparent 75%),
+        radial-gradient(ellipse 65% 65% at 98% 92%, rgba(236, 194, 188, 0.88) 0%, rgba(223, 196, 188, 0.40) 45%, transparent 75%),
+        radial-gradient(circle at 85% 15%, rgba(246, 231, 226, 0.90) 0%, transparent 45%),
+        radial-gradient(circle at 45% 50%, rgba(249, 231, 225, 0.65) 0%, transparent 65%);
       background-attachment: fixed;
       overflow-x: hidden;
     }
 
     ::selection {
-      background: var(--blush-soft);
-      color: var(--accent);
+      background: var(--blush-pink);
+      color: var(--dusty-rose);
     }
 
-    /* ASYMMETRICAL LAYOUT SHELL */
-    .editorial-shell {
-      display: grid;
-      grid-template-columns: 1fr;
-      min-height: 100vh;
-    }
-
-    @media (min-width: 900px) {
-      .editorial-shell {
-        grid-template-columns: 280px 1fr;
-      }
-    }
-
-    /* STICKY SIDE NAVIGATION */
-    .sticky-sidebar {
-      position: sticky;
+    /* =====================================================
+       PAPER GRAIN TEXTURE OVERLAY
+    ===================================================== */
+    .paper-grain-overlay {
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 100vw;
       height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 48px 36px;
-      border-right: 1px solid var(--blush-border);
-      background: rgba(252, 248, 246, 0.85);
-      backdrop-filter: blur(16px);
-      z-index: 50;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    @media (max-width: 899px) {
-      .sticky-sidebar {
-        position: sticky;
-        top: 0;
-        height: auto;
-        flex-direction: row;
-        align-items: center;
-        padding: 20px 24px;
-        border-right: none;
-        border-bottom: 1px solid var(--blush-border);
-      }
-
-      .sidebar-footer {
-        display: none;
-      }
+    /* =====================================================
+       TOP-RIGHT HALFTONE DOT PATTERN
+    ===================================================== */
+    .halftone-top-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 420px;
+      height: 420px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.35;
+      background-image: radial-gradient(var(--dusty-rose) 1.6px, transparent 1.6px);
+      background-size: 15px 15px;
+      mask-image: radial-gradient(circle at 100% 0%, black 40%, transparent 80%);
+      -webkit-mask-image: radial-gradient(circle at 100% 0%, black 40%, transparent 80%);
     }
 
-    .logo {
-      font-family: var(--font-serif);
-      font-size: 26px;
-      font-weight: 600;
-      font-style: italic;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .sidebar-issue-tag {
-      font-family: var(--font-script);
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--accent);
-      margin-top: 6px;
-    }
-
-    .navlinks {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      margin: 40px 0;
-    }
-
-    @media (max-width: 899px) {
-      .navlinks {
-        flex-direction: row;
-        gap: 24px;
-        margin: 0;
-      }
-    }
-
-    .navlinks a {
-      font-family: var(--font-sans);
-      font-size: 13px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .navlinks a:hover {
-      color: var(--accent);
-      transform: translateX(4px);
-    }
-
-    .sidebar-footer {
-      font-family: var(--font-script);
-      font-size: 17px;
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    /* MAIN CONTENT COLUMN */
-    .main-content {
-      padding: 0 48px;
-      max-width: 1080px;
-    }
-
-    @media (max-width: 640px) {
-      .main-content {
-        padding: 0 24px;
-      }
-    }
-
-    /* HERO SPLIT LAYOUT */
-    .hero {
-      padding: 100px 0 90px;
-      border-bottom: 1px solid var(--blush-border);
+    /* =====================================================
+       HERO SECTION — UNBOXED FULL VIEWPORT (100VH)
+    ===================================================== */
+    .hero-editorial-section {
       position: relative;
-    }
-
-    .hero-split {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    @media (min-width: 960px) {
-      .hero-split {
-        grid-template-columns: 1.3fr 0.9fr;
-      }
-    }
-
-    .eyebrow {
-      font-family: var(--font-script);
-      font-size: 24px;
-      font-weight: 600;
-      color: var(--accent);
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
-      background: var(--blush-soft);
-      padding: 6px 20px;
-      border-radius: 30px;
-      border: 1px solid var(--blush-border);
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 10px var(--accent);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: 0.4;
-        transform: scale(0.85);
-      }
-    }
-
-    h1 {
-      font-family: var(--font-serif);
-      font-weight: 600;
-      font-size: clamp(46px, 5.5vw, 78px);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin-bottom: 24px;
-    }
-
-    h1 span {
-      display: block;
-      font-style: italic;
-      font-weight: 400;
-      color: var(--accent);
-      font-size: 0.9em;
-    }
-
-    .terminal-card {
-      background: var(--card-bg);
-      border: 1px solid var(--blush-border);
-      border-radius: 20px;
-      padding: 20px 24px;
-      box-shadow: var(--shadow-paper);
-      margin-top: 16px;
-    }
-
-    .terminal-label {
-      font-family: var(--font-script);
-      font-size: 18px;
-      color: var(--accent);
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .terminal {
-      font-family: var(--font-sans);
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--text);
-      min-height: 28px;
+      width: 100vw;
+      height: 100vh;
+      min-height: 100vh;
       display: flex;
-      align-items: center;
-    }
-
-    .terminal .caret {
-      display: inline-block;
-      width: 2px;
-      height: 1.2em;
-      margin-left: 4px;
-      background: var(--accent);
-      animation: blink 1s step-end infinite;
-    }
-
-    @keyframes blink {
-      50% {
-        opacity: 0;
-      }
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      margin-top: 36px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      font-family: var(--font-sans);
-      font-size: 12px;
-      font-weight: 600;
-      padding: 16px 36px;
-      border-radius: 40px;
-      border: 1px solid var(--blush-border);
-      transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .btn.primary {
-      background: var(--accent);
-      color: #FFFFFF;
-      border-color: var(--accent);
-      box-shadow: 0 10px 28px rgba(168, 94, 115, 0.25);
-    }
-
-    .btn.primary:hover {
-      background: var(--accent-dark);
-      border-color: var(--accent-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 14px 34px rgba(168, 94, 115, 0.35);
-    }
-
-    .btn.ghost {
-      color: var(--text);
-      background: var(--card-bg);
-      border-color: var(--blush-border);
-      box-shadow: var(--shadow-paper);
-    }
-
-    .btn.ghost:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    /* ASYMMETRICAL Scrapbook HERO COLLAGE */
-    .hero-collage {
-      position: relative;
-    }
-
-    .collage-card {
-      background: var(--card-bg);
-      border-radius: 24px;
-      border: 1px solid var(--blush-border);
-      padding: 28px;
-      box-shadow: var(--shadow-paper);
-      transform: rotate(3deg);
-      transition: transform 0.4s ease;
-    }
-
-    .collage-card:hover {
-      transform: rotate(0deg) scale(1.02);
-    }
-
-    .collage-placeholder {
-      width: 100%;
-      height: 320px;
-      background: linear-gradient(135deg, #F7E4EA 0%, #FCF8F6 50%, #EBC8D5 100%);
-      border-radius: 16px;
-      display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      border: 1px dashed rgba(168, 94, 115, 0.35);
+      padding: 0 4vw;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
-    .collage-placeholder span {
-      font-family: var(--font-script);
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--accent);
+    .hero-editorial-container {
+      display: grid;
+      grid-template-columns: 46% 54%;
+      align-items: center;
+      max-width: 1380px;
+      width: 100%;
+      height: 92vh;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
     }
 
-    .badge-float {
+    /* ═══ PORTRAIT COLUMN (LEFT) ═══ */
+    .hero-portrait-col {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 20px;
+    }
+
+    /* Geometric Blush Polygon Backdrop Shape */
+    .portrait-polygon-backdrop {
       position: absolute;
-      top: -16px;
-      left: -16px;
-      background: var(--accent);
-      color: #FFFFFF;
-      font-family: var(--font-script);
-      font-size: 19px;
+      bottom: 2%;
+      left: 3%;
+      width: 88%;
+      height: 88%;
+      z-index: 1;
+      pointer-events: none;
+      filter: drop-shadow(0 10px 25px rgba(236, 194, 188, 0.4));
+    }
+
+    /* Portrait Image (Cutout) */
+    .hero-portrait-img {
+      position: relative;
+      z-index: 2;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 85vh;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 28px rgba(171, 105, 104, 0.12)) drop-shadow(0 4px 14px rgba(236, 194, 188, 0.25));
+      transition: transform 0.5s ease;
+    }
+
+    .hero-portrait-col:hover .hero-portrait-img {
+      transform: scale(1.015);
+    }
+
+    /* Hand-Drawn 5-Point Star Overlay */
+    .hero-star-overlay {
+      position: absolute;
+      bottom: 11%;
+      right: 10%;
+      width: 135px;
+      height: 135px;
+      z-index: 10;
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+
+    .hero-star-overlay svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 8px 16px rgba(171, 105, 104, 0.20));
+    }
+
+    /* ═══ TYPOGRAPHY COLUMN (RIGHT) ═══ */
+    .hero-text-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding-left: 3vw;
+      z-index: 5;
+    }
+
+    /* 'hi, i'm' Tilted Tag */
+    .tag-hi-im {
+      background-color: var(--dusty-rose);
+      color: var(--warm-cream);
+      font-family: var(--font-sans);
+      font-size: 14px;
       font-weight: 600;
-      padding: 6px 18px;
-      border-radius: 30px;
-      transform: rotate(-6deg);
-      box-shadow: 0 8px 20px rgba(168, 94, 115, 0.3);
+      padding: 5px 16px;
+      border-radius: 4px;
+      transform: rotate(-2deg);
+      display: inline-block;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(183, 110, 121, 0.25);
+    }
+
+    /* Main Name Stack: SOUKHYA WALE */
+    .hero-name-heading {
+      margin: 0;
+      padding: 0;
+      line-height: 0.95;
+    }
+
+    .name-soukhya {
+      font-family: var(--font-name);
+      font-size: clamp(50px, 6.4vw, 98px);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--charcoal);
+      text-transform: uppercase;
+      display: block;
+      text-shadow: none;
+    }
+
+    .name-wale {
+      font-family: var(--font-name);
+      font-size: clamp(50px, 6.4vw, 98px);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--dusty-rose);
+      text-transform: uppercase;
+      display: block;
+      margin-top: 12px;
+      text-shadow: none;
+    }
+
+    /* Oval Tag: * creative developer */
+    .oval-label-tag {
+      display: inline-flex;
+      align-items: center;
+      border: 1.5px solid var(--dusty-rose);
+      border-radius: 100px;
+      padding: 6px 26px;
+      margin-bottom: 24px;
+      background: rgba(248, 230, 235, 0.25);
+      box-shadow: 0 2px 10px rgba(183, 110, 121, 0.08);
+    }
+
+    .oval-label-tag span {
+      font-family: var(--font-sans);
+      font-size: clamp(14px, 1.2vw, 17px);
+      font-weight: 500;
+      color: var(--dusty-rose);
+      letter-spacing: 0.04em;
+    }
+
+    /* Subtext Paragraph */
+    .hero-subtext-para {
+      font-family: var(--font-sans);
+      font-size: clamp(15px, 1.2vw, 17.5px);
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      max-width: 420px;
+    }
+
+    /* Action Buttons Row */
+    .hero-action-buttons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 72px;
+    }
+
+    .btn-fashion-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--warm-cream);
+      background-color: var(--dusty-rose);
+      border: 1.5px solid var(--dusty-rose);
+      border-radius: 6px;
+      padding: 14px 30px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 8px 20px rgba(183, 110, 121, 0.22);
+    }
+
+    .btn-fashion-primary:hover {
+      background-color: var(--dusty-rose-dark);
+      border-color: var(--dusty-rose-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(183, 110, 121, 0.32);
+    }
+
+    .btn-fashion-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dusty-rose);
+      background-color: transparent;
+      border: 1.5px solid var(--dusty-rose);
+      border-radius: 6px;
+      padding: 14px 30px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-fashion-secondary:hover {
+      background-color: rgba(183, 110, 121, 0.08);
+      color: var(--dusty-rose-dark);
+      border-color: var(--dusty-rose-dark);
+      transform: translateY(-2px);
+    }
+
+    /* =====================================================
+       MAIN CONTAINER FOR LOWER SECTIONS
+    ===================================================== */
+    .main-content {
+      padding: 60px 6vw 100px;
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
     }
 
     /* SECTIONS BASE */
     section {
-      padding: 110px 0;
-      border-bottom: 1px solid var(--blush-border);
+      padding: 100px 0;
+      border-bottom: 1px solid rgba(183, 110, 121, 0.2);
       position: relative;
     }
 
     .section-label {
-      font-family: var(--font-script);
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 14px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dusty-rose);
+      margin-bottom: 16px;
       display: inline-block;
-      background: var(--blush-soft);
+      background: var(--blush-pink);
       padding: 4px 20px;
       border-radius: 20px;
-      border: 1px solid var(--blush-border);
+      border: 1px solid rgba(183, 110, 121, 0.25);
     }
 
     h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(32px, 4vw, 48px);
-      font-weight: 600;
-      line-height: 1.15;
-      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--charcoal);
       margin-bottom: 40px;
     }
 
-    /* SECTION 01: ABOUT & EDITORIAL TIMELINE */
+    /* SECTION 01: ABOUT & TIMELINE */
     .about-split {
       display: grid;
       grid-template-columns: 1fr;
@@ -441,11 +395,11 @@
     }
 
     .about-text-card {
-      background: var(--card-bg);
+      background: #FFFFFF;
       border-radius: 24px;
-      border: 1px solid var(--blush-border);
+      border: 1px solid rgba(183, 110, 121, 0.2);
       padding: 44px;
-      box-shadow: var(--shadow-paper);
+      box-shadow: 0 16px 40px rgba(183, 110, 121, 0.08);
     }
 
     .about-text {
@@ -455,10 +409,10 @@
     }
 
     .about-text strong {
-      color: var(--text);
-      font-weight: 600;
-      font-family: var(--font-serif);
-      font-size: 1.05em;
+      color: var(--charcoal);
+      font-weight: 700;
+      font-family: var(--font-sans);
+      font-size: 1em;
     }
 
     /* EDITORIAL TIMELINE */
@@ -469,37 +423,39 @@
     }
 
     .timeline-item {
-      background: var(--card-bg);
-      border: 1px solid var(--blush-border);
+      background: #FFFFFF;
+      border: 1px solid rgba(183, 110, 121, 0.2);
       border-radius: 20px;
       padding: 22px 28px;
-      box-shadow: var(--shadow-paper);
+      box-shadow: 0 16px 40px rgba(183, 110, 121, 0.08);
       display: flex;
       flex-direction: column;
       gap: 4px;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
 
     .timeline-item:hover {
       transform: translateX(6px);
-      border-color: var(--accent);
+      border-color: var(--dusty-rose);
     }
 
     .timeline-item .k {
-      font-family: var(--font-script);
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--accent);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dusty-rose);
     }
 
     .timeline-item .v {
       font-family: var(--font-sans);
       font-size: 16px;
       font-weight: 600;
-      color: var(--text);
+      color: var(--charcoal);
     }
 
-    /* SECTION 02: INTERACTIVE SKILLS GRID */
+    /* SECTION 02: SKILLS GRID */
     .skill-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -507,11 +463,11 @@
     }
 
     .skill-card {
-      background: var(--card-bg);
-      border: 1px solid var(--blush-border);
+      background: #FFFFFF;
+      border: 1px solid rgba(183, 110, 121, 0.2);
       border-radius: 24px;
       padding: 32px 26px;
-      box-shadow: var(--shadow-paper);
+      box-shadow: 0 16px 40px rgba(183, 110, 121, 0.08);
       transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
       position: relative;
     }
@@ -526,32 +482,34 @@
 
     .skill-card:hover {
       transform: rotate(0deg) translateY(-10px) scale(1.04);
-      box-shadow: var(--shadow-hover);
-      border-color: var(--accent);
+      box-shadow: 0 24px 50px rgba(183, 110, 121, 0.18);
+      border-color: var(--dusty-rose);
     }
 
     .skill-name {
-      font-family: var(--font-serif);
-      font-size: 24px;
-      font-weight: 600;
-      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--charcoal);
       margin-bottom: 6px;
     }
 
     .skill-tag {
-      font-family: var(--font-script);
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--accent);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--dusty-rose);
     }
 
     /* SECTION 03: LUXURY CTA CONTACT CARD */
     .contact-cta {
-      background: linear-gradient(135deg, var(--card-bg) 0%, var(--blush-soft) 100%);
-      border: 1px solid var(--blush-border);
+      background: linear-gradient(135deg, #FFFFFF 0%, var(--blush-pink) 100%);
+      border: 1px solid rgba(183, 110, 121, 0.25);
       border-radius: 32px;
       padding: 64px 48px;
-      box-shadow: var(--shadow-paper);
+      box-shadow: 0 16px 40px rgba(183, 110, 121, 0.08);
       text-align: center;
       position: relative;
     }
@@ -581,55 +539,58 @@
       background: #FFFFFF;
       padding: 24px;
       border-radius: 20px;
-      border: 1px solid var(--blush-border);
-      box-shadow: var(--shadow-paper);
-      transition: transform 0.3s ease;
+      border: 1px solid rgba(183, 110, 121, 0.2);
+      box-shadow: 0 16px 40px rgba(183, 110, 121, 0.08);
+      transition: transform 0.3s ease, border-color 0.3s ease;
       text-align: left;
     }
 
     .contact-row:hover {
       transform: translateY(-4px);
-      border-color: var(--accent);
+      border-color: var(--dusty-rose);
     }
 
     .contact-icon {
       width: 52px;
       height: 52px;
       border-radius: 50%;
-      background: var(--blush-soft);
+      background: var(--blush-pink);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--accent);
-      font-family: var(--font-serif);
-      font-size: 20px;
-      font-weight: 600;
+      color: var(--dusty-rose);
+      font-family: var(--font-sans);
+      font-size: 18px;
+      font-weight: 700;
       flex-shrink: 0;
     }
 
     .contact-detail .label {
-      font-family: var(--font-script);
-      font-size: 19px;
-      font-weight: 700;
-      color: var(--accent);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dusty-rose);
     }
 
     .contact-detail .value {
       font-family: var(--font-sans);
       font-size: 16px;
       font-weight: 600;
-      color: var(--text);
+      color: var(--charcoal);
       margin-top: 2px;
       word-break: break-word;
     }
 
     .contact-detail .value a {
+      color: var(--charcoal);
       transition: color 0.25s ease;
       text-decoration: none;
     }
 
     .contact-detail .value a:hover {
-      color: var(--accent);
+      color: var(--dusty-rose);
       text-decoration: underline;
     }
 
@@ -646,205 +607,229 @@
     }
 
     footer span {
-      font-family: var(--font-script);
-      font-size: 19px;
-      text-transform: none;
-      color: var(--accent);
-      font-weight: 600;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--dusty-rose);
+      font-weight: 700;
+    }
+
+    /* =====================================================
+       RESPONSIVE BREAKPOINTS
+    ===================================================== */
+    @media (max-width: 900px) {
+      .hero-editorial-section {
+        height: auto;
+        min-height: 100vh;
+        padding: 40px 5vw;
+      }
+
+      .hero-editorial-container {
+        grid-template-columns: 1fr;
+        height: auto;
+        gap: 30px;
+      }
+
+      .hero-portrait-col {
+        order: 1;
+        min-height: 380px;
+      }
+
+      .hero-portrait-img {
+        max-height: 48vh;
+      }
+
+      .hero-star-overlay {
+        width: 90px;
+        height: 90px;
+        bottom: 5%;
+        right: 5%;
+      }
+
+      .hero-text-col {
+        order: 2;
+        padding-left: 0;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-action-buttons {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-fashion-primary,
+      .btn-fashion-secondary {
+        justify-content: center;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="editorial-shell">
-    <!-- STICKY SIDEBAR NAVIGATION -->
-    <aside class="sticky-sidebar">
-      <div>
-        <a class="logo" href="#">soukhya wale</a>
-        <div class="sidebar-issue-tag">Vol. III Editorial — 2026</div>
+  <!-- SVG PAPER GRAIN OVERLAY -->
+  <div class="paper-grain-overlay"></div>
+
+  <!-- HERO SECTION (UNBOXED 100VH FASHION EDITORIAL) -->
+  <section class="hero-editorial-section">
+
+    <!-- TOP-RIGHT HALFTONE DOT PATTERN -->
+    <div class="halftone-top-right"></div>
+
+    <!-- MAIN HERO GRID -->
+    <div class="hero-editorial-container">
+
+      <!-- ═══ LEFT: PORTRAIT + POLYGON BACKDROP + STAR ═══ -->
+      <div class="hero-portrait-col">
+
+        <!-- Soft Organic Blush Contour Backdrop Shape -->
+        <svg class="portrait-polygon-backdrop" viewBox="0 0 450 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100 45 L280 18 L360 95 L405 235 L385 455 L245 530 L90 490 L50 285 L60 140 Z" fill="#ECC2BC"
+            fill-opacity="0.38" />
+        </svg>
+
+        <!-- Existing Cutout Portrait (Fully Colored) -->
+        <img src="portrait.png" alt="Soukhya Wale cutout portrait" class="hero-portrait-img">
+
+        <!-- 5-Point Star Overlay (Overlapping portrait) -->
+        <div class="hero-star-overlay">
+          <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="50,4 63,35 96,35 69,56 80,88 50,68 20,88 31,56 4,35 37,35" fill="#F6E7E2" stroke="#AB6968"
+              stroke-width="3.5" stroke-linejoin="round" />
+          </svg>
+        </div>
+
       </div>
 
-      <nav class="navlinks">
-        <a href="#about"><span>01</span> about</a>
-        <a href="#skills"><span>02</span> skills</a>
-        <a href="#contact"><span>03</span> contact</a>
-      </nav>
+      <!-- ═══ RIGHT: TYPOGRAPHY STACK ═══ -->
+      <div class="hero-text-col">
 
-      <div class="sidebar-footer">
-        ✦ AI & Data Science
+        <!-- 'hi, i'm' Tilted Dusty Rose Tag -->
+        <div class="tag-hi-im">Hii, I'm</div>
+
+        <!-- Headline Stack: SOUKHYA WALE -->
+        <h1 class="hero-name-heading">
+          <span class="name-soukhya">SOUKHYA</span>
+          <span class="name-wale">WALE</span>
+        </h1>
+
+        <!-- Action Buttons -->
+        <div class="hero-action-buttons">
+          <a href="#about" class="btn-fashion-primary">VIEW PROJECTS </a>
+          <a href="#contact" class="btn-fashion-secondary">CONTACT ME </a>
+        </div>
+
       </div>
-    </aside>
 
-    <!-- MAIN EDITORIAL CONTENT -->
-    <main class="main-content">
+    </div>
+  </section>
 
-      <!-- HERO SECTION -->
-      <header class="hero">
-        <div class="hero-split">
-          <div class="hero-text-col">
-            <div class="eyebrow">
-              <span class="dot"></span> available for internships & collaboration
-            </div>
-            <h1>Soukhya Wale<br><span>builds with code & data.</span></h1>
+  <!-- MAIN CONTENT CONTAINER FOR LOWER SECTIONS -->
+  <main class="main-content">
 
-            <div class="terminal-card">
-              <div class="terminal-label">✨ Editorial Note</div>
-              <div class="terminal" id="terminal"></div>
-            </div>
+    <!-- SECTION 01: ABOUT & TIMELINE -->
+    <section id="about">
+      <div class="section-label">01 · About</div>
+      <h2>Third-year, building both sides of the stack.</h2>
 
-            <div class="hero-actions">
-              <a class="btn primary" href="#contact">Get in touch ✦</a>
-              <a class="btn ghost" href="https://github.com/Soukhyaa" target="_blank" rel="noopener">View GitHub ↗</a>
-            </div>
+      <div class="about-split">
+        <div class="about-text-card">
+          <p class="about-text">
+            I'm a <strong>B.Tech 3rd year student in Artificial Intelligence & Data Science</strong>,
+            splitting my time between coursework in AI/ML fundamentals and building things for the web.
+            I like projects where the two overlap — training a model is only half the job if
+            nobody can actually use it, so I care about the front end just as much as the backend logic.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="k">Program</span>
+            <span class="v">B.Tech, AI & Data Science</span>
           </div>
+          <div class="timeline-item">
+            <span class="k">Year</span>
+            <span class="v">3rd Year</span>
+          </div>
+          <div class="timeline-item">
+            <span class="k">Focus</span>
+            <span class="v">AI/ML + Web Dev</span>
+          </div>
+          <div class="timeline-item">
+            <span class="k">Status</span>
+            <span class="v">Open to opportunities</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="hero-collage">
-            <div class="badge-float">Issue 2026 ✦</div>
-            <div class="collage-card">
-              <div class="collage-placeholder">
-                <span>Portrait / Cover Art</span>
+    <!-- SECTION 02: SKILLS GRID -->
+    <section id="skills">
+      <div class="section-label">02 · Skills</div>
+      <h2>Tools I reach for.</h2>
+
+      <div class="skill-grid">
+        <div class="skill-card">
+          <div class="skill-name">HTML</div>
+          <div class="skill-tag">Markup</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-name">CSS</div>
+          <div class="skill-tag">Styling</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-name">JavaScript</div>
+          <div class="skill-tag">Scripting</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-name">React</div>
+          <div class="skill-tag">Frontend</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-name">Python</div>
+          <div class="skill-tag">AI / Data</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 03: CONTACT CTA -->
+    <section id="contact">
+      <div class="contact-cta">
+        <div class="contact-cta-content">
+          <div class="section-label">03 · Contact</div>
+          <h2>Let's talk.</h2>
+
+          <div class="contact-grid">
+            <div class="contact-row">
+              <div class="contact-icon">@</div>
+              <div class="contact-detail">
+                <div class="label">Email</div>
+                <div class="value"><a href="mailto:wsoukhya@gmail.com">wsoukhya@gmail.com</a></div>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="contact-icon">&lt;/&gt;</div>
+              <div class="contact-detail">
+                <div class="label">GitHub</div>
+                <div class="value"><a href="https://github.com/Soukhyaa" target="_blank"
+                    rel="noopener">github.com/Soukhyaa</a></div>
               </div>
             </div>
           </div>
         </div>
-      </header>
+      </div>
+    </section>
 
-      <!-- SECTION 01: ABOUT & TIMELINE -->
-      <section id="about">
-        <div class="section-label">01 · About</div>
-        <h2>Third-year, building both sides of the stack.</h2>
+    <!-- FOOTER -->
+    <footer>
+      © 2026 SOUKHYA WALE · BUILT WITH <span>HTML, CSS & JS</span> · EDITORIAL ISSUE
+    </footer>
 
-        <div class="about-split">
-          <div class="about-text-card">
-            <p class="about-text">
-              I'm a <strong>B.Tech 3rd year student in Artificial Intelligence & Data Science</strong>,
-              splitting my time between coursework in AI/ML fundamentals and building things for the web.
-              I like projects where the two overlap — training a model is only half the job if
-              nobody can actually use it, so I care about the front end just as much as the backend logic.
-            </p>
-          </div>
-
-          <div class="timeline">
-            <div class="timeline-item">
-              <span class="k">Program</span>
-              <span class="v">B.Tech, AI & Data Science</span>
-            </div>
-            <div class="timeline-item">
-              <span class="k">Year</span>
-              <span class="v">3rd Year</span>
-            </div>
-            <div class="timeline-item">
-              <span class="k">Focus</span>
-              <span class="v">AI/ML + Web Dev</span>
-            </div>
-            <div class="timeline-item">
-              <span class="k">Status</span>
-              <span class="v">Open to opportunities</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION 02: SKILLS GRID -->
-      <section id="skills">
-        <div class="section-label">02 · Skills</div>
-        <h2>Tools I reach for.</h2>
-
-        <div class="skill-grid">
-          <div class="skill-card">
-            <div class="skill-name">HTML</div>
-            <div class="skill-tag">Markup</div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-name">CSS</div>
-            <div class="skill-tag">Styling</div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-name">JavaScript</div>
-            <div class="skill-tag">Scripting</div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-name">React</div>
-            <div class="skill-tag">Frontend</div>
-          </div>
-          <div class="skill-card">
-            <div class="skill-name">Python</div>
-            <div class="skill-tag">AI / Data</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION 03: CONTACT CTA -->
-      <section id="contact">
-        <div class="contact-cta">
-          <div class="contact-cta-content">
-            <div class="section-label">03 · Contact</div>
-            <h2>Let's talk.</h2>
-
-            <div class="contact-grid">
-              <div class="contact-row">
-                <div class="contact-icon">@</div>
-                <div class="contact-detail">
-                  <div class="label">Email</div>
-                  <div class="value"><a href="mailto:wsoukhya@gmail.com">wsoukhya@gmail.com</a></div>
-                </div>
-              </div>
-
-              <div class="contact-row">
-                <div class="contact-icon">&lt;/&gt;</div>
-                <div class="contact-detail">
-                  <div class="label">GitHub</div>
-                  <div class="value"><a href="https://github.com/Soukhyaa" target="_blank"
-                      rel="noopener">github.com/Soukhyaa</a></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FOOTER -->
-      <footer>
-        © 2026 SOUKHYA WALE · BUILT WITH <span>HTML, CSS & JS</span> · EDITORIAL ISSUE
-      </footer>
-
-    </main>
-  </div>
-
-  <script>
-    const roles = [
-      "AI & Data Science student",
-      "Frontend developer (React)",
-      "Python enthusiast",
-      "Always learning something new"
-    ];
-    const el = document.getElementById('terminal');
-    let roleIndex = 0, charIndex = 0, deleting = false;
-
-    function tick() {
-      const current = roles[roleIndex];
-      if (!deleting) {
-        charIndex++;
-        if (charIndex > current.length) {
-          deleting = true;
-          setTimeout(tick, 1400);
-          el.innerHTML = "> " + current + '<span class="caret">&nbsp;</span>';
-          return;
-        }
-      } else {
-        charIndex--;
-        if (charIndex < 0) {
-          deleting = false;
-          roleIndex = (roleIndex + 1) % roles.length;
-          charIndex = 0;
-        }
-      }
-      el.innerHTML = "> " + current.slice(0, charIndex) + '<span class="caret">&nbsp;</span>';
-      setTimeout(tick, deleting ? 35 : 65);
-    }
-    tick();
-  </script>
+  </main>
 
 </body>
 
