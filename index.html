@@ -284,66 +284,164 @@
       margin-top: 72px;
     }
 
-    .btn-fashion-primary {
+    /* =====================================================
+       21ST.DEV PEARL BUTTON SYSTEM (PORTFOLIO PALETTE)
+    ===================================================== */
+    .btn-pearl {
+      position: relative;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
+      padding: 14px 28px;
+      border-radius: 9999px;
       font-family: var(--font-sans);
       font-size: 11.5px;
       font-weight: 600;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--warm-cream);
-      background-color: var(--dusty-rose);
-      border: 1.5px solid var(--dusty-rose);
-      border-radius: 6px;
-      padding: 14px 30px;
       text-decoration: none;
-      transition: all 0.25s ease;
-      cursor: pointer;
       white-space: nowrap;
-      box-shadow: 0 8px 20px rgba(183, 110, 121, 0.22);
+      cursor: pointer;
+      overflow: hidden;
+      user-select: none;
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .btn-pearl:active {
+      transform: translateY(1px) scale(0.985) !important;
+    }
+
+    /* Primary Pearl Button (Deep Maroon Glossy Pearl) */
+    .btn-fashion-primary {
+      color: var(--warm-cream);
+      background: linear-gradient(180deg,
+          rgba(155, 92, 99, 0.95) 0%,
+          rgba(92, 27, 34, 1) 100%);
+      border: 1px solid rgba(249, 231, 225, 0.35);
+      box-shadow:
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.45),
+        inset 0 -2px 4px 0 rgba(0, 0, 0, 0.25),
+        0 6px 18px rgba(92, 27, 34, 0.28),
+        0 2px 6px rgba(92, 27, 34, 0.18);
+    }
+
+    .btn-fashion-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 48%;
+      background: linear-gradient(180deg,
+          rgba(255, 255, 255, 0.24) 0%,
+          rgba(255, 255, 255, 0) 100%);
+      border-radius: 9999px 9999px 0 0;
+      pointer-events: none;
     }
 
     .btn-fashion-primary:hover {
-      background-color: var(--dusty-rose-dark);
-      border-color: var(--dusty-rose-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 26px rgba(183, 110, 121, 0.32);
+      color: #FFF;
+      background: linear-gradient(180deg,
+          rgba(171, 105, 104, 0.98) 0%,
+          rgba(105, 30, 38, 1) 100%);
+      border-color: rgba(249, 231, 225, 0.5);
+      transform: translateY(-2.5px);
+      box-shadow:
+        inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.65),
+        inset 0 -2px 5px 0 rgba(0, 0, 0, 0.3),
+        0 10px 24px rgba(92, 27, 34, 0.36),
+        0 4px 10px rgba(92, 27, 34, 0.22);
     }
 
+    /* Secondary Pearl Button (Blush Pink Glossy Pearl) */
     .btn-fashion-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-sans);
-      font-size: 11.5px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--dusty-rose);
-      background-color: transparent;
-      border: 1.5px solid var(--dusty-rose);
-      border-radius: 6px;
-      padding: 14px 30px;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      cursor: pointer;
-      white-space: nowrap;
+      color: #5C1B22;
+      background: linear-gradient(180deg,
+          rgba(249, 231, 225, 0.95) 0%,
+          rgba(223, 196, 188, 0.9) 100%);
+      border: 1.5px solid rgba(171, 105, 104, 0.35);
+      box-shadow:
+        inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.85),
+        inset 0 -2px 4px 0 rgba(171, 105, 104, 0.15),
+        0 6px 18px rgba(171, 105, 104, 0.14),
+        0 2px 6px rgba(171, 105, 104, 0.08);
+    }
+
+    .btn-fashion-secondary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 48%;
+      background: linear-gradient(180deg,
+          rgba(255, 255, 255, 0.55) 0%,
+          rgba(255, 255, 255, 0) 100%);
+      border-radius: 9999px 9999px 0 0;
+      pointer-events: none;
     }
 
     .btn-fashion-secondary:hover {
-      background-color: rgba(183, 110, 121, 0.08);
-      color: var(--dusty-rose-dark);
-      border-color: var(--dusty-rose-dark);
-      transform: translateY(-2px);
+      color: #4A1319;
+      background: linear-gradient(180deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(236, 194, 188, 0.95) 100%);
+      border-color: rgba(171, 105, 104, 0.55);
+      transform: translateY(-2.5px);
+      box-shadow:
+        inset 0 1px 2px 0 rgba(255, 255, 255, 0.95),
+        inset 0 -2px 5px 0 rgba(171, 105, 104, 0.2),
+        0 10px 24px rgba(171, 105, 104, 0.22),
+        0 4px 10px rgba(171, 105, 104, 0.12);
+    }
+
+    /* Pearl Star Icon ✧ → ✦ Transition */
+    .btn-star-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 14px;
+      height: 14px;
+      font-size: 13px;
+      line-height: 1;
+    }
+
+    .star-icon {
+      position: absolute;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+      display: inline-block;
+    }
+
+    .star-outline {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+
+    .star-solid {
+      opacity: 0;
+      transform: scale(0.4) rotate(-45deg);
+    }
+
+    .btn-pearl:hover .star-outline {
+      opacity: 0;
+      transform: scale(0.4) rotate(45deg);
+    }
+
+    .btn-pearl:hover .star-solid {
+      opacity: 1;
+      transform: scale(1.18) rotate(0deg);
     }
 
     /* =====================================================
        MAIN CONTAINER FOR LOWER SECTIONS
     ===================================================== */
+    /* =====================================================
+       MAIN CONTAINER FOR LOWER SECTIONS
+    ===================================================== */
     .main-content {
-      padding: 60px 6vw 100px;
+      padding: 20px 6vw 100px;
       max-width: 1280px;
       margin: 0 auto;
       width: 100%;
@@ -381,38 +479,166 @@
       margin-bottom: 40px;
     }
 
-    /* SECTION 01: ABOUT & TIMELINE */
-    .about-split {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 48px;
+    /* SECTION 01: ABOUT SECTION (HIGH EDITORIAL REFINEMENT) */
+    .about-editorial-section {
+      position: relative;
+      width: 100%;
+      min-height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 4vw 30px 4vw;
+      box-sizing: border-box;
     }
 
-    @media (min-width: 860px) {
-      .about-split {
-        grid-template-columns: 1.2fr 1fr;
+    .about-frame {
+      position: relative;
+      width: 100%;
+      max-width: 1380px;
+      min-height: 540px;
+      border: 1.5px solid var(--dusty-rose);
+      border-radius: 24px;
+      display: grid;
+      grid-template-columns: 44% 56%;
+      align-items: center;
+      padding: 70px 6vw 125px 6vw;
+      box-sizing: border-box;
+      gap: 60px;
+      background: transparent;
+    }
+
+    .about-left-col {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      position: relative;
+      padding-left: 2vw;
+      margin-top: 60px;
+    }
+
+    .about-title-tilted {
+      transform: rotate(-17deg);
+      display: inline-flex;
+      flex-direction: column;
+      gap: 18px;
+      transform-origin: left top;
+    }
+
+    .about-word-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .about-title-text {
+      font-family: var(--font-name);
+      font-size: clamp(60px, 7.2vw, 115px);
+      font-weight: 400;
+      line-height: 0.92;
+      letter-spacing: 0.03em;
+      color: #5C1B22;
+      /* Deep, rich dark maroon/burgundy tone */
+      position: relative;
+      z-index: 2;
+      display: block;
+    }
+
+    .highlighter-svg {
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .stroke-about-svg {
+      width: 116%;
+      height: 82%;
+      top: 16%;
+      left: -7%;
+    }
+
+    .stroke-me-svg {
+      width: 124%;
+      height: 84%;
+      top: 14%;
+      left: -9%;
+    }
+
+    .word-me-wrap .about-title-text {
+      transform: translateX(52px);
+    }
+
+    .about-right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      max-width: 480px;
+      position: relative;
+      z-index: 3;
+      padding-right: 1vw;
+    }
+
+    .about-description-para {
+      font-family: var(--font-sans);
+      font-size: clamp(16px, 1.3vw, 19.5px);
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--charcoal);
+      margin: 0;
+    }
+
+    .highlight-pink {
+      color: var(--dusty-rose);
+      font-weight: 500;
+    }
+
+    @media (max-width: 960px) {
+      .about-editorial-section {
+        min-height: auto;
+        padding: 20px 4vw;
+      }
+
+      .about-frame {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 60px 6vw;
+        gap: 54px;
+        border-radius: 20px;
+      }
+
+      .about-left-col {
+        justify-content: flex-start;
+        padding-left: 20px;
+        margin-top: 0;
+      }
+
+      .about-title-tilted {
+        transform: rotate(-14deg);
+      }
+
+      .about-title-text {
+        font-size: clamp(50px, 12vw, 84px);
+      }
+
+      .about-right-col {
+        max-width: 100%;
+        padding-right: 0;
       }
     }
 
-    .about-text-card {
-      background: #FFFFFF;
-      border-radius: 24px;
-      border: 1px solid rgba(183, 110, 121, 0.2);
-      padding: 44px;
-      box-shadow: 0 16px 40px rgba(183, 110, 121, 0.08);
-    }
+    @media (max-width: 480px) {
+      .about-frame {
+        padding: 44px 20px;
+        gap: 44px;
+        border-radius: 16px;
+      }
 
-    .about-text {
-      color: var(--text-muted);
-      font-size: 18px;
-      line-height: 1.85;
-    }
+      .about-left-col {
+        padding-left: 10px;
+      }
 
-    .about-text strong {
-      color: var(--charcoal);
-      font-weight: 700;
-      font-family: var(--font-sans);
-      font-size: 1em;
+      .about-title-text {
+        font-size: clamp(42px, 13vw, 64px);
+      }
     }
 
     /* EDITORIAL TIMELINE */
@@ -455,52 +681,117 @@
       color: var(--charcoal);
     }
 
-    /* SECTION 02: SKILLS GRID */
-    .skill-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 24px;
-    }
-
-    .skill-card {
-      background: #FFFFFF;
-      border: 1px solid rgba(183, 110, 121, 0.2);
-      border-radius: 24px;
-      padding: 32px 26px;
-      box-shadow: 0 16px 40px rgba(183, 110, 121, 0.08);
-      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* =====================================================
+       SECTION 02: CONTINUOUS TECH STACK LOGOLOOP
+    ===================================================== */
+    .skills-logoloop-section {
+      padding: 10px 0 50px 0;
       position: relative;
+      overflow: hidden;
+      border-bottom: none;
     }
 
-    .skill-card:nth-child(odd) {
-      transform: rotate(-2.5deg);
+    .logoloop-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin-top: 0;
+      padding: 16px 0;
+      mask-image: linear-gradient(to right,
+          transparent 0%,
+          rgba(0, 0, 0, 1) 12%,
+          rgba(0, 0, 0, 1) 88%,
+          transparent 100%);
+      -webkit-mask-image: linear-gradient(to right,
+          transparent 0%,
+          rgba(0, 0, 0, 1) 12%,
+          rgba(0, 0, 0, 1) 88%,
+          transparent 100%);
     }
 
-    .skill-card:nth-child(even) {
-      transform: rotate(2deg);
+    .logoloop-track {
+      display: flex;
+      width: max-content;
+      gap: 54px;
+      animation: logoLoopScroll 28s linear infinite;
+      will-change: transform;
     }
 
-    .skill-card:hover {
-      transform: rotate(0deg) translateY(-10px) scale(1.04);
-      box-shadow: 0 24px 50px rgba(183, 110, 121, 0.18);
-      border-color: var(--dusty-rose);
+    /* Pause animation on hover */
+    .logoloop-track:hover {
+      animation-play-state: paused;
     }
 
-    .skill-name {
+    .logoloop-group {
+      display: flex;
+      align-items: center;
+      gap: 54px;
+      flex-shrink: 0;
+    }
+
+    /* CONTINUOUS UNBOXED STRIP LOGO ITEM */
+    .logo-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: transparent;
+      border: none;
+      padding: 6px 4px;
+      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .logo-item:hover {
+      transform: scale(1.15) translateY(-2px);
+    }
+
+    .logo-icon-wrap {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-icon-wrap svg {
+      width: 100%;
+      height: 100%;
+      fill: #5C1B22;
+      /* Dark Maroon from portfolio palette */
+      transition: transform 0.3s ease, fill 0.3s ease;
+    }
+
+    .logo-item:hover .logo-icon-wrap svg {
+      transform: scale(1.08);
+      fill: #4A1319;
+    }
+
+    .logo-title {
       font-family: var(--font-sans);
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--charcoal);
-      margin-bottom: 6px;
-    }
-
-    .skill-tag {
-      font-family: var(--font-sans);
-      font-size: 13px;
+      font-size: 17.5px;
       font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--dusty-rose);
+      letter-spacing: 0.04em;
+      color: #5C1B22;
+      /* Dark Maroon from portfolio palette */
+      transition: color 0.3s ease;
+    }
+
+    .logo-item:hover .logo-title {
+      color: #4A1319;
+    }
+
+    /* Continuous right-to-left marquee animation keyframes */
+    @keyframes logoLoopScroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(calc(-50% - 27px));
+      }
     }
 
     /* SECTION 03: LUXURY CTA CONTACT CARD */
@@ -673,6 +964,36 @@
   <!-- SVG PAPER GRAIN OVERLAY -->
   <div class="paper-grain-overlay"></div>
 
+  <!-- SVG DEFINITIONS FOR GRAINY HIGHLIGHTER BRUSH STROKE -->
+  <svg width="0" height="0" style="position: absolute; pointer-events: none; width: 0; height: 0;">
+    <defs>
+      <filter id="grainy-highlighter-filter" x="-20%" y="-40%" width="140%" height="180%"
+        filterUnits="objectBoundingBox">
+        <!-- 1. Dry brush hair edge distortion -->
+        <feTurbulence type="fractalNoise" baseFrequency="0.04 0.16" numOctaves="4" result="edgeTurbulence" />
+        <feDisplacementMap in="SourceGraphic" in2="edgeTurbulence" scale="12" xChannelSelector="R" yChannelSelector="G"
+          result="displacedStroke" />
+
+        <!-- 2. High-density fine grain noise -->
+        <feTurbulence type="fractalNoise" baseFrequency="0.92" numOctaves="4" result="speckleGrain" />
+
+        <!-- 3. Tint the speckle noise with dusty rose particles & bright highlights -->
+        <feColorMatrix type="matrix" values="
+          0.55 0    0    0   0.45
+          0.15 0.38 0    0   0.30
+          0.12 0.12 0.28 0   0.32
+          0    0    0    0.7 0" in="speckleGrain" result="tintedNoise" />
+
+        <!-- 4. Clip grain to the displaced brush stroke boundary -->
+        <feComposite in="tintedNoise" in2="displacedStroke" operator="in" result="clippedGrain" />
+
+        <!-- 5. Arithmetic blend fine grain over displaced shape for dry-marker pigment feel -->
+        <feComposite in="displacedStroke" in2="clippedGrain" operator="arithmetic" k1="0.55" k2="0.8" k3="0.35" k4="0"
+          result="highlighterOutput" />
+      </filter>
+    </defs>
+  </svg>
+
   <!-- HERO SECTION (UNBOXED 100VH FASHION EDITORIAL) -->
   <section class="hero-editorial-section">
 
@@ -716,12 +1037,72 @@
           <span class="name-wale">WALE</span>
         </h1>
 
-        <!-- Action Buttons -->
+        <!-- Action Buttons (21st.dev Pearl Button System) -->
         <div class="hero-action-buttons">
-          <a href="#about" class="btn-fashion-primary">VIEW PROJECTS </a>
-          <a href="#contact" class="btn-fashion-secondary">CONTACT ME </a>
+          <a href="#about" class="btn-fashion-primary btn-pearl">
+            <span>VIEW PROJECTS</span>
+            <span class="btn-star-wrap">
+              <span class="star-icon star-outline">✧</span>
+              <span class="star-icon star-solid">✦</span>
+            </span>
+          </a>
+          <a href="#contact" class="btn-fashion-secondary btn-pearl">
+            <span>CONTACT ME</span>
+            <span class="btn-star-wrap">
+              <span class="star-icon star-outline">✧</span>
+              <span class="star-icon star-solid">✦</span>
+            </span>
+          </a>
         </div>
 
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 01: EDITORIAL ABOUT SECTION -->
+  <section id="about" class="about-editorial-section">
+    <div class="about-frame">
+
+      <!-- LEFT: Tilted Editorial Headline with Grainy Pink Highlighter Strokes -->
+      <div class="about-left-col">
+        <div class="about-title-tilted">
+
+          <!-- ABOUT -->
+          <div class="about-word-wrap word-about-wrap">
+            <svg class="highlighter-svg stroke-about-svg" viewBox="0 0 540 95" preserveAspectRatio="none">
+              <path
+                d="M 12 24 C 90 14, 250 24, 520 12 C 532 30, 528 58, 508 76 C 360 82, 180 72, 18 78 C 4 58, 6 38, 12 24 Z"
+                fill="var(--bg-blush)" opacity="0.95" filter="url(#grainy-highlighter-filter)" />
+            </svg>
+            <span class="about-title-text">ABOUT</span>
+          </div>
+
+          <!-- ME -->
+          <div class="about-word-wrap word-me-wrap">
+            <svg class="highlighter-svg stroke-me-svg" viewBox="0 0 340 95" preserveAspectRatio="none">
+              <path
+                d="M 10 22 C 85 14, 210 22, 322 14 C 334 32, 328 58, 308 74 C 210 80, 100 70, 15 74 C 4 56, 5 36, 10 22 Z"
+                fill="var(--bg-blush)" opacity="0.95" filter="url(#grainy-highlighter-filter)" />
+            </svg>
+            <span class="about-title-text">ME</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: Editorial Paragraph Sitting Freely on Background -->
+      <div class="about-right-col">
+        <p class="about-description-para">
+          I’m an AI & Data Science student who loves turning things I <span class="highlight-pink">imagine</span> into
+          something <span class="highlight-pink">real</span>.
+        </p>
+        <p class="about-description-para">
+          I’m exploring the intersection of <span class="highlight-pink">technology</span>, <span
+            class="highlight-pink">design</span>, and <span class="highlight-pink">creativity</span> — from building web
+          experiences to experimenting with <span class="highlight-pink">AI</span> and <span
+            class="highlight-pink">data</span>.
+        </p>
       </div>
 
     </div>
@@ -730,67 +1111,183 @@
   <!-- MAIN CONTENT CONTAINER FOR LOWER SECTIONS -->
   <main class="main-content">
 
-    <!-- SECTION 01: ABOUT & TIMELINE -->
-    <section id="about">
-      <div class="section-label">01 · About</div>
-      <h2>Third-year, building both sides of the stack.</h2>
+    <!-- SECTION 02: CONTINUOUS TECH STACK LOGOLOOP -->
+    <section id="skills" class="skills-logoloop-section">
+      <div class="logoloop-container">
+        <div class="logoloop-track">
 
-      <div class="about-split">
-        <div class="about-text-card">
-          <p class="about-text">
-            I'm a <strong>B.Tech 3rd year student in Artificial Intelligence & Data Science</strong>,
-            splitting my time between coursework in AI/ML fundamentals and building things for the web.
-            I like projects where the two overlap — training a model is only half the job if
-            nobody can actually use it, so I care about the front end just as much as the backend logic.
-          </p>
-        </div>
+          <!-- GROUP 1: ORIGINAL 7 LOGOS -->
+          <div class="logoloop-group">
 
-        <div class="timeline">
-          <div class="timeline-item">
-            <span class="k">Program</span>
-            <span class="v">B.Tech, AI & Data Science</span>
-          </div>
-          <div class="timeline-item">
-            <span class="k">Year</span>
-            <span class="v">3rd Year</span>
-          </div>
-          <div class="timeline-item">
-            <span class="k">Focus</span>
-            <span class="v">AI/ML + Web Dev</span>
-          </div>
-          <div class="timeline-item">
-            <span class="k">Status</span>
-            <span class="v">Open to opportunities</span>
-          </div>
-        </div>
-      </div>
-    </section>
+            <!-- 1. HTML5 -->
+            <div class="logo-item">
+              <div class="logo-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M1.5 0h21l-1.91 21.563L11.97 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L3.991 4.41l.696 7.962h9.792l-.37 4.156-2.509.675-2.518-.678-.163-1.777H6.309l.322 4.14 5.37 1.453 5.362-1.453.72-8.082H8.531z" />
+                </svg>
+              </div>
+              <span class="logo-title">HTML5</span>
+            </div>
 
-    <!-- SECTION 02: SKILLS GRID -->
-    <section id="skills">
-      <div class="section-label">02 · Skills</div>
-      <h2>Tools I reach for.</h2>
+            <!-- 2. CSS3 -->
+            <div class="logo-item">
+              <div class="logo-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M1.5 0h21l-1.91 21.563L11.97 24l-8.564-2.438L1.5 0zm15.65 14.863l.474-5.313H6.883l-.23-2.584 11.107-.003.23-2.584H3.991l.69 7.74h9.135l-.364 4.085-2.492.67-2.493-.67-.16-1.748H6.386l.32 4.09 5.254 1.42 5.253-1.42.937-10.495H17.15z" />
+                </svg>
+              </div>
+              <span class="logo-title">CSS3</span>
+            </div>
 
-      <div class="skill-grid">
-        <div class="skill-card">
-          <div class="skill-name">HTML</div>
-          <div class="skill-tag">Markup</div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-name">CSS</div>
-          <div class="skill-tag">Styling</div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-name">JavaScript</div>
-          <div class="skill-tag">Scripting</div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-name">React</div>
-          <div class="skill-tag">Frontend</div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-name">Python</div>
-          <div class="skill-tag">AI / Data</div>
+            <!-- 3. JavaScript -->
+            <div class="logo-item">
+              <div class="logo-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.465.735-.63 1.29-.45.33.105.69.345.96.69.57-.75 1.05-1.395 1.05-1.395-.465-.57-1.14-.945-1.74-1.08-.885-.195-2.115-.045-2.835.645-.72.69-.885 1.635-.6 2.49.33 1.005 1.275 1.575 2.19 1.935.915.375 1.8.69 1.8 1.245 0 .495-.435.795-1.155.795-.84 0-1.365-.45-1.77-1.02-.57.735-1.11 1.425-1.11 1.425.645.96 1.74 1.44 2.82 1.44 1.47 0 2.76-.735 2.94-2.205zM12.1 19.341c0-.975.015-1.95-.015-2.925-.015-.285-.09-.645-.255-.87-.39-.51-.975-.435-1.485-.345-.33.06-.63.225-.855.45-.165.165-.24.39-.255.63-.03 1.005-.015 2.01-.015 3.015h-2.16c0-2.31-.015-4.62.015-6.93h2.115v.945c.42-.585 1.05-.99 1.77-1.11.96-.165 2.025.045 2.61.795.69.87.69 2.055.675 3.12-.015 1.08 0 2.16 0 3.24H12.1z" />
+                </svg>
+              </div>
+              <span class="logo-title">JavaScript</span>
+            </div>
+
+            <!-- 4. React -->
+            <div class="logo-item">
+              <div class="logo-icon-wrap">
+                <svg viewBox="-11.5 -10.23174 23 20.46348" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <circle cx="0" cy="0" r="2.05" fill="currentColor" />
+                  <g>
+                    <ellipse rx="11" ry="4.2" />
+                    <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+                    <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+                  </g>
+                </svg>
+              </div>
+              <span class="logo-title">React</span>
+            </div>
+
+            <!-- 5. Python -->
+            <div class="logo-item">
+              <div class="logo-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M11.927 0C5.66 0 6.046 2.72 6.046 2.72l.008 2.818h5.992v.842H3.722S0 5.952 0 12.247c0 6.294 3.25 6.074 3.25 6.074l1.942-.008v-2.738s-.106-3.25 3.21-3.25h5.534s3.097.054 3.097-3.003V3.25S17.472 0 11.927 0zM8.887 1.815a1.05 1.05 0 1 1 0 2.101 1.05 1.05 0 0 1 0-2.101zm3.177 22.185c6.267 0 5.88-2.72 5.88-2.72l-.007-2.818H11.945v-.842h8.324s3.722.428 3.722-5.867c0-6.294-3.25-6.074-3.25-6.074l-1.942.008v2.738s.106 3.25-3.21 3.25H10.05s-3.097-.054-3.097 3.003v6.074s-.44 3.25 5.105 3.25zm3.04-1.815a1.05 1.05 0 1 1 0-2.101 1.05 1.05 0 0 1 0 2.101z" />
+                </svg>
+              </div>
+              <span class="logo-title">Python</span>
+            </div>
+
+            <!-- 6. Git -->
+            <div class="logo-item">
+              <div class="logo-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.216 1.379-.06 1.889.449.516.516.668 1.258.448 1.905l2.66 2.66c.647-.22 1.389-.068 1.905.448.729.728.729 1.91 0 2.639-.728.729-1.91.729-2.639 0-.54-.54-.687-1.313-.44-1.972l-2.474-2.474v6.62c.16.083.31.196.44.327.728.728.728 1.91 0 2.639-.728.729-1.91.729-2.639 0-.728-.729-.728-1.91 0-2.639.158-.158.34-.277.537-.353V9.757c-.198-.076-.38-.195-.537-.353-.544-.544-.684-1.325-.429-1.989L7.1 4.636.452 11.285c-.603.604-.603 1.582 0 2.188l10.479 10.478c.604.604 1.582.604 2.188 0l10.427-10.428c.604-.603.604-1.581 0-2.188z" />
+                </svg>
+              </div>
+              <span class="logo-title">Git</span>
+            </div>
+
+            <!-- 7. GitHub -->
+            <div class="logo-item">
+              <div class="logo-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+              </div>
+              <span class="logo-title">GitHub</span>
+            </div>
+
+          </div>
+
+          <!-- GROUP 2: DUPLICATE CLONED LOGOS FOR SEAMLESS INFINITE LOOP -->
+          <div class="logoloop-group" aria-hidden="true">
+
+            <!-- 1. HTML5 -->
+            <div class="logo-item">
+              <div class="logo-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M1.5 0h21l-1.91 21.563L11.97 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L3.991 4.41l.696 7.962h9.792l-.37 4.156-2.509.675-2.518-.678-.163-1.777H6.309l.322 4.14 5.37 1.453 5.362-1.453.72-8.082H8.531z" />
+                </svg>
+              </div>
+              <span class="logo-title">HTML5</span>
+            </div>
+
+            <!-- 2. CSS3 -->
+            <div class="logo-item">
+              <div class="logo-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M1.5 0h21l-1.91 21.563L11.97 24l-8.564-2.438L1.5 0zm15.65 14.863l.474-5.313H6.883l-.23-2.584 11.107-.003.23-2.584H3.991l.69 7.74h9.135l-.364 4.085-2.492.67-2.493-.67-.16-1.748H6.386l.32 4.09 5.254 1.42 5.253-1.42.937-10.495H17.15z" />
+                </svg>
+              </div>
+              <span class="logo-title">CSS3</span>
+            </div>
+
+            <!-- 3. JavaScript -->
+            <div class="logo-item">
+              <div class="logo-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.465.735-.63 1.29-.45.33.105.69.345.96.69.57-.75 1.05-1.395 1.05-1.395-.465-.57-1.14-.945-1.74-1.08-.885-.195-2.115-.045-2.835.645-.72.69-.885 1.635-.6 2.49.33 1.005 1.275 1.575 2.19 1.935.915.375 1.8.69 1.8 1.245 0 .495-.435.795-1.155.795-.84 0-1.365-.45-1.77-1.02-.57.735-1.11 1.425-1.11 1.425.645.96 1.74 1.44 2.82 1.44 1.47 0 2.76-.735 2.94-2.205zM12.1 19.341c0-.975.015-1.95-.015-2.925-.015-.285-.09-.645-.255-.87-.39-.51-.975-.435-1.485-.345-.33.06-.63.225-.855.45-.165.165-.24.39-.255.63-.03 1.005-.015 2.01-.015 3.015h-2.16c0-2.31-.015-4.62.015-6.93h2.115v.945c.42-.585 1.05-.99 1.77-1.11.96-.165 2.025.045 2.61.795.69.87.69 2.055.675 3.12-.015 1.08 0 2.16 0 3.24H12.1z" />
+                </svg>
+              </div>
+              <span class="logo-title">JavaScript</span>
+            </div>
+
+            <!-- 4. React -->
+            <div class="logo-item">
+              <div class="logo-icon-wrap">
+                <svg viewBox="-11.5 -10.23174 23 20.46348" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <circle cx="0" cy="0" r="2.05" fill="currentColor" />
+                  <g>
+                    <ellipse rx="11" ry="4.2" />
+                    <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+                    <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+                  </g>
+                </svg>
+              </div>
+              <span class="logo-title">React</span>
+            </div>
+
+            <!-- 5. Python -->
+            <div class="logo-item">
+              <div class="logo-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M11.927 0C5.66 0 6.046 2.72 6.046 2.72l.008 2.818h5.992v.842H3.722S0 5.952 0 12.247c0 6.294 3.25 6.074 3.25 6.074l1.942-.008v-2.738s-.106-3.25 3.21-3.25h5.534s3.097.054 3.097-3.003V3.25S17.472 0 11.927 0zM8.887 1.815a1.05 1.05 0 1 1 0 2.101 1.05 1.05 0 0 1 0-2.101zm3.177 22.185c6.267 0 5.88-2.72 5.88-2.72l-.007-2.818H11.945v-.842h8.324s3.722.428 3.722-5.867c0-6.294-3.25-6.074-3.25-6.074l-1.942.008v2.738s.106 3.25-3.21 3.25H10.05s-3.097-.054-3.097 3.003v6.074s-.44 3.25 5.105 3.25zm3.04-1.815a1.05 1.05 0 1 1 0-2.101 1.05 1.05 0 0 1 0 2.101z" />
+                </svg>
+              </div>
+              <span class="logo-title">Python</span>
+            </div>
+
+            <!-- 6. Git -->
+            <div class="logo-item">
+              <div class="logo-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.216 1.379-.06 1.889.449.516.516.668 1.258.448 1.905l2.66 2.66c.647-.22 1.389-.068 1.905.448.729.728.729 1.91 0 2.639-.728.729-1.91.729-2.639 0-.54-.54-.687-1.313-.44-1.972l-2.474-2.474v6.62c.16.083.31.196.44.327.728.728.728 1.91 0 2.639-.728.729-1.91.729-2.639 0-.728-.729-.728-1.91 0-2.639.158-.158.34-.277.537-.353V9.757c-.198-.076-.38-.195-.537-.353-.544-.544-.684-1.325-.429-1.989L7.1 4.636.452 11.285c-.603.604-.603 1.582 0 2.188l10.479 10.478c.604.604 1.582.604 2.188 0l10.427-10.428c.604-.603.604-1.581 0-2.188z" />
+                </svg>
+              </div>
+              <span class="logo-title">Git</span>
+            </div>
+
+            <!-- 7. GitHub -->
+            <div class="logo-item">
+              <div class="logo-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+              </div>
+              <span class="logo-title">GitHub</span>
+            </div>
+
+          </div>
+
         </div>
       </div>
     </section>
@@ -832,4 +1329,3 @@
   </main>
 
 </body>
-
