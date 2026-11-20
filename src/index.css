@@ -1220,3 +1220,89 @@
         justify-content: center;
       }
     }
+
+
+    /* =====================================================
+       STAGE 2: SCROLL-CONTROLLED STAR PORTAL TRANSITION
+    ===================================================== */
+    .star-portal-container {
+      position: relative;
+      width: 100%;
+    }
+
+    .star-portal-stage {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Layer 1: Base Hero Layer (Always 100% visible on load) */
+    .portal-hero-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: auto;
+    }
+
+    .portal-hero-layer .hero-editorial-section {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Layer 2: Portal Window Layer (Reveals About through expanding 5-pointed star aperture) */
+    .portal-revealed-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      opacity: 0;
+      will-change: clip-path, opacity;
+      background-color: var(--bg-base);
+      background-image:
+        radial-gradient(ellipse 70% 60% at 2% 8%, rgba(236, 194, 188, 0.88) 0%, rgba(223, 196, 188, 0.45) 45%, transparent 75%),
+        radial-gradient(ellipse 65% 65% at 98% 92%, rgba(236, 194, 188, 0.88) 0%, rgba(223, 196, 188, 0.40) 45%, transparent 75%),
+        radial-gradient(circle at 85% 15%, rgba(246, 231, 226, 0.90) 0%, transparent 45%),
+        radial-gradient(circle at 45% 50%, rgba(249, 231, 225, 0.65) 0%, transparent 65%);
+      background-attachment: fixed;
+    }
+
+    .portal-revealed-layer .about-editorial-section {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* Layer 3: Expanding Star Vector Outline (Dusty Rose Rim) */
+    .portal-star-rim {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 3;
+      pointer-events: none;
+      overflow: visible;
+      opacity: 0;
+      transition: opacity 0.1s ease-out;
+    }
+
+    .portal-rim-poly {
+      fill: none;
+      stroke: var(--dusty-rose);
+      stroke-width: 3.5px;
+      stroke-linejoin: round;
+      vector-effect: non-scaling-stroke;
+      filter: drop-shadow(0 0 16px rgba(171, 105, 104, 0.6));
+    }

@@ -41,18 +41,21 @@ export default function About() {
         {/* RIGHT: Editorial Paragraph Sitting Freely on Background */}
         <div className="about-right-col">
           <p className="about-description-para">
-            I’m an AI &amp; Data Science student who loves turning things I{' '}
-            <span className="highlight-pink">imagine</span> into something{' '}
-            <span className="highlight-pink">real</span>.
+            I’m an AI &amp; Data Science student, an aspiring{' '}
+            <span className="highlight-pink">full-stack developer</span>, and a tech
+            enthusiast with a creative approach to problem-solving. I love turning
+            ideas and <span className="highlight-pink">imagination</span> into experiences
+            that people can see, explore, and interact with.
           </p>
           <p className="about-description-para">
-            I’m exploring the intersection of{' '}
-            <span className="highlight-pink">technology</span>,{' '}
-            <span className="highlight-pink">design</span>, and{' '}
-            <span className="highlight-pink">creativity</span> — from building web
-            experiences to experimenting with{' '}
-            <span className="highlight-pink">AI</span> and{' '}
-            <span className="highlight-pink">data</span>.
+            Drawn to the space where <span className="highlight-pink">technology</span> meets{' '}
+            <span className="highlight-pink">creativity</span>, I enjoy experimenting
+            with <span className="highlight-pink">design</span>, building playful interactions,
+            and finding unconventional ways to bring ideas to life. I believe technology
+            can be more than just functional — it can have character, spark curiosity, and
+            make even the simplest interactions memorable. After all, I don't just want to
+            build things that work; I want to build things that make people{' '}
+            <span className="highlight-pink">feel something</span>.
           </p>
         </div>
 

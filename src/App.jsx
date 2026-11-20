@@ -1,7 +1,6 @@
 import React from 'react';
 import SvgFilters from './components/common/SvgFilters';
-import Hero from './components/hero/Hero';
-import About from './components/about/About';
+import StarPortal from './components/portal/StarPortal';
 import Skills from './components/skills/Skills';
 import GitHubActivity from './components/github/GitHubActivity';
 import Resume from './components/resume/Resume';
@@ -12,8 +11,7 @@ export default function App() {
   return (
     <>
       <SvgFilters />
-      <Hero />
-      <About />
+      <StarPortal />
       <main className="main-content">
         <Skills />
         <GitHubActivity />
