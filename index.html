@@ -14,7 +14,7 @@
     @font-face {
       font-family: 'Perfect Romantic';
       src: url('fonts/PerfectRomantic-Regular.otf') format('opentype');
-      font-weight: normal;
+      font-weight: 400 900;
       font-style: normal;
       font-display: swap;
     }
@@ -713,7 +713,7 @@
       display: flex;
       width: max-content;
       gap: 54px;
-      animation: logoLoopScroll 28s linear infinite;
+      animation: logoLoopScroll 22s linear infinite;
       will-change: transform;
     }
 
@@ -887,6 +887,351 @@
         order: 2;
         padding-left: 0;
         align-items: flex-start;
+      }
+    }
+
+    /* =====================================================
+       SECTION: GITHUB ACTIVITY
+    ===================================================== */
+    .github-activity-section {
+      padding: 70px 0 50px 0;
+      position: relative;
+    }
+
+    .github-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(246, 231, 226, 0.92) 100%);
+      border: 1px solid rgba(183, 110, 121, 0.25);
+      border-radius: 32px;
+      padding: 44px 40px;
+      box-shadow: 0 16px 40px rgba(183, 110, 121, 0.08);
+      position: relative;
+    }
+
+    .github-card-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .github-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .github-section-tag {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dusty-rose);
+    }
+
+    .github-heading {
+      font-family: var(--font-name);
+      font-size: clamp(28px, 3.4vw, 40px);
+      font-weight: 600;
+      -webkit-text-stroke: 0.35px #5C1B22;
+      letter-spacing: 0.01em;
+      color: #5C1B22;
+      margin-bottom: 0;
+      line-height: 1.15;
+    }
+
+    .github-stat-pill {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(171, 105, 104, 0.25);
+      border-radius: 18px;
+      padding: 10px 22px;
+      box-shadow: 0 4px 14px rgba(171, 105, 104, 0.06);
+    }
+
+    .github-stat-number {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      color: #5C1B22;
+      line-height: 1.1;
+    }
+
+    .github-stat-desc {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--dusty-rose);
+      margin-top: 2px;
+    }
+
+    /* CALENDAR WRAPPER & SCROLL */
+    .github-calendar-wrap {
+      position: relative;
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(183, 110, 121, 0.2);
+      border-radius: 20px;
+      padding: 22px 24px;
+      margin-bottom: 24px;
+    }
+
+    .github-calendar-scroll {
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding-bottom: 6px;
+      -webkit-overflow-scrolling: touch;
+      position: relative;
+    }
+
+    .github-calendar-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .github-calendar-scroll::-webkit-scrollbar-track {
+      background: rgba(223, 196, 188, 0.25);
+      border-radius: 9999px;
+    }
+
+    .github-calendar-scroll::-webkit-scrollbar-thumb {
+      background: rgba(171, 105, 104, 0.45);
+      border-radius: 9999px;
+    }
+
+    .github-calendar-scroll::-webkit-scrollbar-thumb:hover {
+      background: var(--dusty-rose);
+    }
+
+    .github-calendar-graph {
+      position: relative;
+      min-width: 760px;
+      width: 100%;
+    }
+
+    .github-calendar-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    .gh-cal-month-text {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 500;
+      fill: var(--text-muted);
+    }
+
+    .gh-cal-day-text {
+      font-family: var(--font-sans);
+      font-size: 9px;
+      font-weight: 500;
+      fill: var(--text-muted);
+    }
+
+    .gh-cal-cell {
+      outline: none;
+      transition: stroke 0.2s ease, transform 0.2s ease;
+      cursor: pointer;
+    }
+
+    .gh-cal-cell:hover {
+      stroke: #5C1B22;
+      stroke-width: 1.5;
+    }
+
+    /* THEME CALENDAR COLOR LEVELS (Blush, Terracotta & Burgundy) */
+    .gh-cal-cell.level-0,
+    .legend-cell.level-0 {
+      fill: #F6E7E2;
+      background-color: #F6E7E2;
+    }
+
+    .gh-cal-cell.level-1,
+    .legend-cell.level-1 {
+      fill: #DFC4BC;
+      background-color: #DFC4BC;
+    }
+
+    .gh-cal-cell.level-2,
+    .legend-cell.level-2 {
+      fill: #CA9072;
+      background-color: #CA9072;
+    }
+
+    .gh-cal-cell.level-3,
+    .legend-cell.level-3 {
+      fill: #AB6968;
+      background-color: #AB6968;
+    }
+
+    .gh-cal-cell.level-4,
+    .legend-cell.level-4 {
+      fill: #5C1B22;
+      background-color: #5C1B22;
+    }
+
+    /* TOOLTIP */
+    .github-tooltip {
+      position: absolute;
+      display: none;
+      pointer-events: none;
+      transform: translate(-50%, -100%);
+      margin-top: -8px;
+      background: #191E27;
+      color: #FFFFFF;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+      z-index: 99;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .github-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #191E27 transparent transparent transparent;
+    }
+
+    /* LOADING & ERROR STATES */
+    .github-calendar-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 120px;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      text-align: center;
+    }
+
+    .github-loading-spinner {
+      width: 26px;
+      height: 26px;
+      border: 2.5px solid rgba(171, 105, 104, 0.25);
+      border-top-color: #5C1B22;
+      border-radius: 50%;
+      animation: ghSpin 0.8s linear infinite;
+    }
+
+    @keyframes ghSpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .github-error-link {
+      color: #5C1B22;
+      font-weight: 600;
+      text-decoration: underline;
+      font-size: 13px;
+    }
+
+    /* FOOTER & LEGEND */
+    .github-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .github-legend {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .legend-cell {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border-radius: 2.5px;
+    }
+
+    /* =====================================================
+       RESUME SECTION (COMPACT & MINIMAL)
+    ===================================================== */
+    .resume-section {
+      padding: 60px 0 50px 0;
+      text-align: center;
+      border-bottom: 1px solid rgba(183, 110, 121, 0.2);
+    }
+
+    .resume-container {
+      max-width: 480px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .resume-title {
+      font-family: var(--font-name);
+      font-size: clamp(32px, 3.5vw, 42px);
+      font-weight: 600;
+      -webkit-text-stroke: 0.35px #5C1B22;
+      letter-spacing: 0.02em;
+      color: #5C1B22;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .resume-divider {
+      width: 44px;
+      height: 2px;
+      background: var(--dusty-rose);
+      border-radius: 2px;
+      margin-bottom: 24px;
+      opacity: 0.7;
+    }
+
+    .resume-btn {
+      padding: 12px 28px;
+    }
+
+    @media (max-width: 640px) {
+      .github-card {
+        padding: 30px 20px;
+      }
+
+      .github-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .github-stat-pill {
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .github-card-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+      }
+
+      .github-card-footer .btn-pearl {
+        justify-content: center;
       }
     }
 
@@ -1083,7 +1428,7 @@
               <div class="logo-icon-wrap">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path
-                    d="M1.5 0h21l-1.91 21.563L11.97 24l-8.564-2.438L1.5 0zm15.65 14.863l.474-5.313H6.883l-.23-2.584 11.107-.003.23-2.584H3.991l.69 7.74h9.135l-.364 4.085-2.492.67-2.493-.67-.16-1.748H6.386l.32 4.09 5.254 1.42 5.253-1.42.937-10.495H17.15z" />
+                    d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z" />
                 </svg>
               </div>
               <span class="logo-title">CSS3</span>
@@ -1094,7 +1439,7 @@
               <div class="logo-icon-wrap">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path
-                    d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.465.735-.63 1.29-.45.33.105.69.345.96.69.57-.75 1.05-1.395 1.05-1.395-.465-.57-1.14-.945-1.74-1.08-.885-.195-2.115-.045-2.835.645-.72.69-.885 1.635-.6 2.49.33 1.005 1.275 1.575 2.19 1.935.915.375 1.8.69 1.8 1.245 0 .495-.435.795-1.155.795-.84 0-1.365-.45-1.77-1.02-.57.735-1.11 1.425-1.11 1.425.645.96 1.74 1.44 2.82 1.44 1.47 0 2.76-.735 2.94-2.205zM12.1 19.341c0-.975.015-1.95-.015-2.925-.015-.285-.09-.645-.255-.87-.39-.51-.975-.435-1.485-.345-.33.06-.63.225-.855.45-.165.165-.24.39-.255.63-.03 1.005-.015 2.01-.015 3.015h-2.16c0-2.31-.015-4.62.015-6.93h2.115v.945c.42-.585 1.05-.99 1.77-1.11.96-.165 2.025.045 2.61.795.69.87.69 2.055.675 3.12-.015 1.08 0 2.16 0 3.24H12.1z" />
+                    d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z" />
                 </svg>
               </div>
               <span class="logo-title">JavaScript</span>
@@ -1126,7 +1471,18 @@
               <span class="logo-title">Python</span>
             </div>
 
-            <!-- 6. Git -->
+            <!-- 6. SQL -->
+            <div class="logo-item">
+              <div class="logo-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.48 2 2 3.34 2 5v14c0 1.66 4.48 3 10 3s10-1.34 10-3V5c0-1.66-4.48-3-10-3zm0 2c4.42 0 8 1.05 8 2s-3.58 2-8 2-8-1.05-8-2 3.58-2 8-2zm8 15c0 .95-3.58 2-8 2s-8-1.05-8-2v-2.17c1.78 1.11 4.73 1.84 8 1.84s6.22-.73 8-1.84V19zm0-4.5c0 .95-3.58 2-8 2s-8-1.05-8-2v-2.17c1.78 1.11 4.73 1.84 8 1.84s6.22-.73 8-1.84V14.5zM20 10c0 .95-3.58 2-8 2s-8-1.05-8-2V7.83c1.78 1.11 4.73 1.84 8 1.84s6.22-.73 8-1.84V10z" />
+                </svg>
+              </div>
+              <span class="logo-title">SQL</span>
+            </div>
+
+            <!-- 7. Git -->
             <div class="logo-item">
               <div class="logo-icon-wrap">
                 <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1137,7 +1493,7 @@
               <span class="logo-title">Git</span>
             </div>
 
-            <!-- 7. GitHub -->
+            <!-- 8. GitHub -->
             <div class="logo-item">
               <div class="logo-icon-wrap">
                 <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1169,7 +1525,7 @@
               <div class="logo-icon-wrap">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path
-                    d="M1.5 0h21l-1.91 21.563L11.97 24l-8.564-2.438L1.5 0zm15.65 14.863l.474-5.313H6.883l-.23-2.584 11.107-.003.23-2.584H3.991l.69 7.74h9.135l-.364 4.085-2.492.67-2.493-.67-.16-1.748H6.386l.32 4.09 5.254 1.42 5.253-1.42.937-10.495H17.15z" />
+                    d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z" />
                 </svg>
               </div>
               <span class="logo-title">CSS3</span>
@@ -1180,7 +1536,7 @@
               <div class="logo-icon-wrap">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path
-                    d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.465.735-.63 1.29-.45.33.105.69.345.96.69.57-.75 1.05-1.395 1.05-1.395-.465-.57-1.14-.945-1.74-1.08-.885-.195-2.115-.045-2.835.645-.72.69-.885 1.635-.6 2.49.33 1.005 1.275 1.575 2.19 1.935.915.375 1.8.69 1.8 1.245 0 .495-.435.795-1.155.795-.84 0-1.365-.45-1.77-1.02-.57.735-1.11 1.425-1.11 1.425.645.96 1.74 1.44 2.82 1.44 1.47 0 2.76-.735 2.94-2.205zM12.1 19.341c0-.975.015-1.95-.015-2.925-.015-.285-.09-.645-.255-.87-.39-.51-.975-.435-1.485-.345-.33.06-.63.225-.855.45-.165.165-.24.39-.255.63-.03 1.005-.015 2.01-.015 3.015h-2.16c0-2.31-.015-4.62.015-6.93h2.115v.945c.42-.585 1.05-.99 1.77-1.11.96-.165 2.025.045 2.61.795.69.87.69 2.055.675 3.12-.015 1.08 0 2.16 0 3.24H12.1z" />
+                    d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z" />
                 </svg>
               </div>
               <span class="logo-title">JavaScript</span>
@@ -1212,7 +1568,18 @@
               <span class="logo-title">Python</span>
             </div>
 
-            <!-- 6. Git -->
+            <!-- 6. SQL -->
+            <div class="logo-item">
+              <div class="logo-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.48 2 2 3.34 2 5v14c0 1.66 4.48 3 10 3s10-1.34 10-3V5c0-1.66-4.48-3-10-3zm0 2c4.42 0 8 1.05 8 2s-3.58 2-8 2-8-1.05-8-2 3.58-2 8-2zm8 15c0 .95-3.58 2-8 2s-8-1.05-8-2v-2.17c1.78 1.11 4.73 1.84 8 1.84s6.22-.73 8-1.84V19zm0-4.5c0 .95-3.58 2-8 2s-8-1.05-8-2v-2.17c1.78 1.11 4.73 1.84 8 1.84s6.22-.73 8-1.84V14.5zM20 10c0 .95-3.58 2-8 2s-8-1.05-8-2V7.83c1.78 1.11 4.73 1.84 8 1.84s6.22-.73 8-1.84V10z" />
+                </svg>
+              </div>
+              <span class="logo-title">SQL</span>
+            </div>
+
+            <!-- 7. Git -->
             <div class="logo-item">
               <div class="logo-icon-wrap">
                 <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1223,7 +1590,7 @@
               <span class="logo-title">Git</span>
             </div>
 
-            <!-- 7. GitHub -->
+            <!-- 8. GitHub -->
             <div class="logo-item">
               <div class="logo-icon-wrap">
                 <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1237,6 +1604,77 @@
           </div>
 
         </div>
+      </div>
+    </section>
+
+    <!-- SECTION: GITHUB ACTIVITY -->
+    <section id="github" class="github-activity-section">
+      <div class="github-card">
+        <div class="github-card-header">
+          <div class="github-title-group">
+            <span class="github-section-tag">Open Source</span>
+            <h2 class="github-heading">GitHub Activity</h2>
+          </div>
+          <div class="github-stat-pill">
+            <span class="github-stat-number" id="github-total-count">--</span>
+            <span class="github-stat-desc">Contributions in the last year</span>
+          </div>
+        </div>
+
+        <!-- CALENDAR WRAPPER -->
+        <div class="github-calendar-wrap">
+          <div class="github-calendar-scroll" id="github-calendar-scroll">
+            <div id="github-calendar-loading" class="github-calendar-state">
+              <span class="github-loading-spinner"></span>
+              <span>Loading contribution activity...</span>
+            </div>
+            <div id="github-calendar-error" class="github-calendar-state" style="display: none;">
+              <p>Unable to load live contribution activity right now.</p>
+              <a href="https://github.com/Soukhyaa" target="_blank" rel="noopener noreferrer" class="github-error-link">View contributions on GitHub ↗</a>
+            </div>
+            <div id="github-calendar-graph" class="github-calendar-graph" style="display: none;">
+              <!-- Dynamically populated via JS -->
+            </div>
+            <div id="github-tooltip" class="github-tooltip"></div>
+          </div>
+        </div>
+
+        <div class="github-card-footer">
+          <!-- Legend: Less -> More -->
+          <div class="github-legend">
+            <span>Less</span>
+            <span class="legend-cell level-0"></span>
+            <span class="legend-cell level-1"></span>
+            <span class="legend-cell level-2"></span>
+            <span class="legend-cell level-3"></span>
+            <span class="legend-cell level-4"></span>
+            <span>More</span>
+          </div>
+
+          <!-- View GitHub Profile Button -->
+          <a href="https://github.com/Soukhyaa" target="_blank" rel="noopener noreferrer" class="btn-fashion-primary btn-pearl">
+            <span>VIEW GITHUB PROFILE</span>
+            <span class="btn-star-wrap">
+              <span class="star-icon star-outline">✧</span>
+              <span class="star-icon star-solid">✦</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: RESUME -->
+    <section id="resume" class="resume-section">
+      <div class="resume-container">
+        <h2 class="resume-title">Resume</h2>
+        <div class="resume-divider"></div>
+        <a href="mailto:wsoukhya@gmail.com?subject=Resume%20Request" class="btn-fashion-primary btn-pearl resume-btn">
+          <span>REQUEST RESUME</span>
+          <span class="btn-star-wrap">
+            <span class="star-icon star-outline">✧</span>
+            <span class="star-icon star-solid">✦</span>
+          </span>
+        </a>
       </div>
     </section>
 
@@ -1255,7 +1693,7 @@
                 <span class="star-icon star-solid">✦</span>
               </span>
             </a>
-            <a href="https://www.linkedin.com/in/soukhya-w-6a79b1345/" target="_blank" rel="noopener"
+            <a href="https://www.linkedin.com/in/soukhya-w-6a79b1345/" target="_blank" rel="noopener noreferrer"
               class="btn-fashion-secondary btn-pearl">
               <span>LINKEDIN</span>
               <span class="btn-star-wrap">
@@ -1263,15 +1701,8 @@
                 <span class="star-icon star-solid">✦</span>
               </span>
             </a>
-            <a href="https://github.com/Soukhyaa" target="_blank" rel="noopener" class="btn-fashion-primary btn-pearl">
+            <a href="https://github.com/Soukhyaa" target="_blank" rel="noopener noreferrer" class="btn-fashion-primary btn-pearl">
               <span>GITHUB</span>
-              <span class="btn-star-wrap">
-                <span class="star-icon star-outline">✧</span>
-                <span class="star-icon star-solid">✦</span>
-              </span>
-            </a>
-            <a href="tel:+918446136731" class="btn-fashion-secondary btn-pearl">
-              <span>PHONE</span>
               <span class="btn-star-wrap">
                 <span class="star-icon star-outline">✧</span>
                 <span class="star-icon star-solid">✦</span>
@@ -1284,9 +1715,198 @@
 
     <!-- FOOTER -->
     <footer>
-      © 2026 SOUKHYA WALE · BUILT WITH <span>HTML, CSS & JS</span> · EDITORIAL ISSUE
+      © 2026 SOUKHYA WALE · BUILT WITH <span>HTML, CSS & JS</span> ·
     </footer>
 
   </main>
 
+  <script>
+    (function () {
+      const username = 'Soukhyaa';
+      const totalCountEl = document.getElementById('github-total-count');
+      const graphEl = document.getElementById('github-calendar-graph');
+      const loadingEl = document.getElementById('github-calendar-loading');
+      const errorEl = document.getElementById('github-calendar-error');
+      const tooltipEl = document.getElementById('github-tooltip');
+      const scrollEl = document.getElementById('github-calendar-scroll');
+
+      const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+      async function fetchGitHubContributions() {
+        try {
+          const response = await fetch('https://github-contributions-api.jogruber.de/v4/' + username + '?y=last');
+          if (!response.ok) {
+            throw new Error('HTTP ' + response.status);
+          }
+          const data = await response.json();
+
+          if (!data || !data.contributions || !Array.isArray(data.contributions)) {
+            throw new Error('Invalid data structure');
+          }
+
+          // 1. Total Contributions
+          let totalContributions = 0;
+          if (data.total && typeof data.total.lastYear === 'number') {
+            totalContributions = data.total.lastYear;
+          } else {
+            totalContributions = data.contributions.reduce(function (sum, item) {
+              return sum + (item.count || 0);
+            }, 0);
+          }
+
+          if (totalCountEl) {
+            totalCountEl.textContent = totalContributions.toLocaleString();
+          }
+
+          // 2. Render Calendar SVG
+          renderCalendar(data.contributions);
+
+          if (loadingEl) loadingEl.style.display = 'none';
+          if (errorEl) errorEl.style.display = 'none';
+          if (graphEl) graphEl.style.display = 'block';
+
+        } catch (err) {
+          console.warn('Could not load GitHub contributions dynamically:', err);
+          if (loadingEl) loadingEl.style.display = 'none';
+          if (errorEl) errorEl.style.display = 'flex';
+          if (totalCountEl) totalCountEl.textContent = 'Active';
+        }
+      }
+
+      function renderCalendar(contributions) {
+        if (!graphEl) return;
+
+        const weeks = [];
+        let currentWeek = [];
+
+        contributions.forEach(function (day, index) {
+          const parts = day.date.split('-');
+          const d = new Date(Date.UTC(+parts[0], +parts[1] - 1, +parts[2]));
+          const dayOfWeek = d.getUTCDay();
+
+          if (index === 0 && dayOfWeek > 0) {
+            for (let p = 0; p < dayOfWeek; p++) {
+              currentWeek.push(null);
+            }
+          }
+
+          currentWeek.push({
+            date: day.date,
+            count: day.count || 0,
+            level: day.level || 0,
+            utcDate: d
+          });
+
+          if (currentWeek.length === 7) {
+            weeks.push(currentWeek);
+            currentWeek = [];
+          }
+        });
+
+        if (currentWeek.length > 0) {
+          while (currentWeek.length < 7) {
+            currentWeek.push(null);
+          }
+          weeks.push(currentWeek);
+        }
+
+        const cellSize = 11;
+        const cellGap = 3.5;
+        const leftOffset = 30;
+        const topOffset = 22;
+
+        const totalWidth = leftOffset + weeks.length * (cellSize + cellGap);
+        const totalHeight = topOffset + 7 * (cellSize + cellGap) + 4;
+
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 ' + totalWidth + ' ' + totalHeight);
+        svg.setAttribute('class', 'github-calendar-svg');
+        svg.setAttribute('role', 'img');
+        svg.setAttribute('aria-label', 'GitHub Contribution Calendar for ' + username);
+
+        let lastMonth = -1;
+        weeks.forEach(function (week, wIdx) {
+          const firstValid = week.find(function (item) { return item !== null; });
+          if (firstValid) {
+            const m = firstValid.utcDate.getUTCMonth();
+            if (m !== lastMonth) {
+              const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+              text.setAttribute('x', (leftOffset + wIdx * (cellSize + cellGap)).toString());
+              text.setAttribute('y', '12');
+              text.setAttribute('class', 'gh-cal-month-text');
+              text.textContent = monthNames[m];
+              svg.appendChild(text);
+              lastMonth = m;
+            }
+          }
+        });
+
+        const daysToShow = [
+          { day: 1, label: 'Mon' },
+          { day: 3, label: 'Wed' },
+          { day: 5, label: 'Fri' }
+        ];
+        daysToShow.forEach(function (item) {
+          const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+          text.setAttribute('x', '2');
+          text.setAttribute('y', (topOffset + item.day * (cellSize + cellGap) + cellSize - 2).toString());
+          text.setAttribute('class', 'gh-cal-day-text');
+          text.textContent = item.label;
+          svg.appendChild(text);
+        });
+
+        weeks.forEach(function (week, wIdx) {
+          const colX = leftOffset + wIdx * (cellSize + cellGap);
+
+          week.forEach(function (day, dIdx) {
+            if (!day) return;
+            const rowY = topOffset + dIdx * (cellSize + cellGap);
+
+            const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+            rect.setAttribute('x', colX.toString());
+            rect.setAttribute('y', rowY.toString());
+            rect.setAttribute('width', cellSize.toString());
+            rect.setAttribute('height', cellSize.toString());
+            rect.setAttribute('rx', '2.5');
+            rect.setAttribute('ry', '2.5');
+            rect.setAttribute('class', 'gh-cal-cell level-' + Math.min(Math.max(day.level, 0), 4));
+            rect.setAttribute('data-date', day.date);
+            rect.setAttribute('data-count', day.count.toString());
+
+            rect.addEventListener('mouseenter', function () {
+              if (!tooltipEl || !scrollEl) return;
+              const parts = day.date.split('-');
+              const countStr = day.count === 0 ? 'No contributions' : (day.count === 1 ? '1 contribution' : (day.count + ' contributions'));
+              const monthStr = monthNames[+parts[1] - 1];
+              const formatted = countStr + ' on ' + monthStr + ' ' + (+parts[2]) + ', ' + parts[0];
+
+              tooltipEl.textContent = formatted;
+              tooltipEl.style.display = 'block';
+
+              const rectBounds = rect.getBoundingClientRect();
+              const scrollBounds = scrollEl.getBoundingClientRect();
+
+              const topPos = rectBounds.top - scrollBounds.top + scrollEl.scrollTop;
+              const leftPos = rectBounds.left - scrollBounds.left + scrollEl.scrollLeft + (cellSize / 2);
+
+              tooltipEl.style.top = topPos + 'px';
+              tooltipEl.style.left = leftPos + 'px';
+            });
+
+            rect.addEventListener('mouseleave', function () {
+              if (tooltipEl) tooltipEl.style.display = 'none';
+            });
+
+            svg.appendChild(rect);
+          });
+        });
+
+        graphEl.innerHTML = '';
+        graphEl.appendChild(svg);
+      }
+
+      fetchGitHubContributions();
+    })();
+  </script>
 </body>
+</html>
