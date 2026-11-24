@@ -63,7 +63,7 @@ export default function Hero() {
 
           {/* Action Buttons (21st.dev Pearl Button System) */}
           <div className="hero-action-buttons">
-            <PearlButton href="#about" variant="primary">
+            <PearlButton href="#projects" variant="primary">
               VIEW PROJECTS
             </PearlButton>
             <PearlButton href="#contact" variant="secondary">
